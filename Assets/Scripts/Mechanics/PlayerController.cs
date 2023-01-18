@@ -30,6 +30,7 @@ namespace Platformer.Mechanics
         public float coyoteTime = 0.2f;
         public float lastGroundTimer;
         public float jumpPressTimer;
+        public float fallMultiplier = 2.5f;
 
         public JumpState jumpState = JumpState.Grounded;
         private bool stopJump;
@@ -139,6 +140,11 @@ namespace Platformer.Mechanics
                 spriteRenderer.flipX = false;
             else if (move.x < -0.01f)
                 spriteRenderer.flipX = true;
+
+            if (velocity.y < 0)
+            {
+                velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            }
 
             animator.SetBool("grounded", IsGrounded);
             animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
