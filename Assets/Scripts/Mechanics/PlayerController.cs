@@ -124,7 +124,7 @@ namespace Platformer.Mechanics
         {
             if (jump)
             {
-                velocity.y = jumpTakeOffSpeed * model.jumpModifier;
+                velocity.y = jumpTakeOffSpeed;
                 jump = false;
             }
             else if (stopJump)
