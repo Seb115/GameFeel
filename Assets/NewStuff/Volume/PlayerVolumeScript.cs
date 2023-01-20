@@ -1,3 +1,4 @@
+using Platformer.Mechanics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,5 +18,16 @@ public class PlayerVolumeScript : MonoBehaviour
     void Update()
     {
         psound.volume = (rb.transform.position.x - 48) / 3;
+    }
+
+    public void OnCollisionStay2D(Collision2D col)
+    {
+        Debug.Log("biem");
+        Vector2 dir = transform.position - col.transform.position;
+        if (dir.y < 0)
+            return;
+        dir.y = 0;
+        dir.Normalize();
+        GetComponent<Rigidbody2D>().velocity = dir;
     }
 }

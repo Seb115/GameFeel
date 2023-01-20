@@ -18,4 +18,15 @@ public class MusicVolumeScript : MonoBehaviour
     {
         msound.volume = (rb.transform.position.x - 48) / 3;
     }
+
+    public void OnCollisionStay2D(Collision2D col)
+    {
+        Debug.Log("biem");
+        Vector2 dir = transform.position - col.transform.position;
+        if (dir.y < 0)
+            return;
+        dir.y = 0;
+        dir.Normalize();
+        GetComponent<Rigidbody2D>().velocity = dir;
+    }
 }
