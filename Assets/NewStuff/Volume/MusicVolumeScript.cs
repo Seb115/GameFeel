@@ -16,7 +16,8 @@ public class MusicVolumeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        msound.volume = (rb.transform.position.x - 48) / 3;
+        rb.transform.position = new Vector3(Mathf.Clamp(rb.transform.position.x, 48.5f, 50.5f), rb.transform.position.y, rb.transform.position.z);
+        msound.volume = (rb.transform.position.x - 48.5f) / 2;
     }
 
     public void OnCollisionStay2D(Collision2D col)
