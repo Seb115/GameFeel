@@ -28,7 +28,7 @@ namespace Platformer.Gameplay
             DeathThing.instance.ResetThing(player);
             model.virtualCamera.m_Follow = player.transform;
             model.virtualCamera.m_LookAt = player.transform;
-            Simulation.Schedule<EnablePlayerInput>(2f);
+            Simulation.Schedule<EnablePlayerInput>(0.5f);
         }
     }
 }
