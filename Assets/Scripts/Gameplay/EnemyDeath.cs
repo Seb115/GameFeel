@@ -19,6 +19,7 @@ namespace Platformer.Gameplay
             enemy.GetComponent<Animator>().SetTrigger("death");
             if (enemy._audio && enemy.ouch)
                 enemy._audio.PlayOneShot(enemy.ouch);
+            enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 2.3f);
         }
     }
 }
