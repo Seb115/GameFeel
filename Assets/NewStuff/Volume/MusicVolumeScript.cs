@@ -30,4 +30,6 @@ public class MusicVolumeScript : MonoBehaviour
         dir.Normalize();
         GetComponent<Rigidbody2D>().velocity = dir;
     }
+
+    
 }
