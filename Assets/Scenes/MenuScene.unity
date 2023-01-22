@@ -100606,6 +100606,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1577610652}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &2013194134 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8509783501685719824, guid: 7d60c822c3f1b408ea7a00ecdb5e047a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1577610652}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2046089434
 GameObject:
   m_ObjectHideFlags: 0
@@ -101836,6 +101842,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2709819681173077024, guid: 7291813b43f5a3d4f92122459b99ef6e,
+        type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 615301587}
+    - target: {fileID: 2709819681173077024, guid: 7291813b43f5a3d4f92122459b99ef6e,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2013194134}
     - target: {fileID: 2709819681173077025, guid: 7291813b43f5a3d4f92122459b99ef6e,
         type: 3}
       propertyPath: m_RootOrder
