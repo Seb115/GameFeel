@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class DeathThing : MonoBehaviour
 {
-
     public static DeathThing instance;
 
     private void Awake()
     {
         instance = this;
+        gameObject.SetActive(false);
     }
 
     public Transform player;
@@ -23,18 +23,18 @@ public class DeathThing : MonoBehaviour
     public float resetDuration = 0.5f;
 
     private Vector3 lastPos;
+
+
     public void Update()
     {
-        if (lastPos != Vector3.zero)
-        {
-            var point = Camera.main.WorldToScreenPoint(lastPos);
-            thing.position = point;
-        }
+        var point = Camera.main.WorldToScreenPoint(lastPos);
+        thing.position = point;
     }
 
 
     public void Trigger(PlayerController player)
     {
+        gameObject.SetActive(true);
         lastPos = player.transform.position;
         thing.DOSizeDelta(new Vector2(firstSize, firstSize), firstDuration).SetUpdate(true);
         thing.DOSizeDelta(Vector2.zero, secondDuration).SetDelay(firstDuration + delay).SetUpdate(true);
@@ -43,6 +43,7 @@ public class DeathThing : MonoBehaviour
     public void ResetThing(PlayerController player)
     {
         lastPos = player.GetComponent<Rigidbody2D>().position;
-        thing.DOSizeDelta(new Vector2(maxSize, maxSize), resetDuration).SetDelay(0.1f).SetUpdate(true);
+        thing.DOSizeDelta(new Vector2(maxSize, maxSize), resetDuration).SetDelay(0.1f).SetUpdate(true).onComplete +=
+            () => gameObject.SetActive(false);
     }
 }
